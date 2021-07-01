@@ -26,7 +26,7 @@ export function SignIn() {
                games with your friends
             </Text>
 
-            <ButtonIcon title='Sign in with Discord' activeOpacity={.7} onPress={handleSignIn} />
+            <ButtonIcon title='Sign in with Discord' onPress={handleSignIn} />
          </View>
       </View>
    )
