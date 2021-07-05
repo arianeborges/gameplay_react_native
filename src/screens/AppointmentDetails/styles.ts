@@ -1,55 +1,36 @@
 import { StyleSheet } from 'react-native';
+import { getBottomSpace } from 'react-native-iphone-x-helper';
 import { theme } from '../../global/styles/theme';
 
 export const styles = StyleSheet.create({
-   container: {
+   banner: {
       width: '100%',
-      flexDirection: 'row',
-      alignSelf: 'center'
+      height: 234,
+      marginBottom: 30
    },
-   content: {
-      flex: 1
-   },
-   header: {
-      width: '100%',
-      flexDirection: 'row',
-      justifyContent: 'space-between',
-      marginBottom: 12
+   bannerContent: {
+      flex: 1,
+      justifyContent: 'flex-end',
+      paddingHorizontal: 24,
+      marginBottom: 30
    },
    title: {
       fontFamily: theme.fonts.title700,
       color: theme.colors.heading,
-      fontSize: 18
+      fontSize: 28
    },
-   category: {
+   subtitle: {
       fontFamily: theme.fonts.text400,
       color: theme.colors.highlight,
-      fontSize: 13,
-      marginRight: 24
+      fontSize: 13
+   },
+   members: {
+      marginLeft: 24,
+      marginTop: 27
    },
    footer: {
-      width: '100%',
-      flexDirection: 'row',
-      justifyContent: 'space-between',
-   },
-   dateInfo: {
-      flexDirection: 'row',
-      alignItems: 'center',
-   },
-   date: {
-      fontFamily: theme.fonts.text500,
-      color: theme.colors.heading,
-      fontSize: 13,
-      marginLeft: 7
-   },
-   playersInfo: {
-      flexDirection: 'row',
-      alignItems: 'center',
-   },
-   player: {
-      fontFamily: theme.fonts.text500,
-      fontSize: 13,
-      marginLeft: 7,
-      marginRight: 24
+      paddingHorizontal: 24,
+      paddingVertical: 24,
+      marginBottom: getBottomSpace()
    }
 })
