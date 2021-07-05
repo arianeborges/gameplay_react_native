@@ -1,3 +1,4 @@
+import { useNavigation } from '@react-navigation/native';
 import React, { useState } from 'react';
 import { FlatList, View, Text } from 'react-native';
 import { Appointment } from '../../components/Appointment';
@@ -12,22 +13,11 @@ import { styles } from './styles';
 
 export function Home() {
    const [category, setCategory] = useState('');
+   const navigation = useNavigation();
 
    const appointments = [
       {
          id: '1',
-         guild: {
-            id: '1',
-            name: 'Lendários',
-            icon: null,
-            owner: true
-         },
-         category: '1',
-         date: '22/06 at 20:40h',
-         description: 'It is today that we will reach the challenger without losing a md10 match'
-      },
-      {
-         id: '2',
          guild: {
             id: '1',
             name: 'Lendários',
@@ -42,6 +32,10 @@ export function Home() {
 
    function handleCategorySelect(categoryId: string) {
       categoryId === category ? setCategory('') : setCategory(categoryId);
+   }
+
+   function handleAppointmentDetails() {
+      navigation.navigate('AppointmentDetails');
    }
 
    return (
@@ -66,7 +60,10 @@ export function Home() {
                data={appointments}
                keyExtractor={item => item.id}
                renderItem={({ item }) => (
-                  <Appointment data={item} />
+                  <Appointment
+                     data={item}
+                     onPress={handleAppointmentDetails}
+                  />
                )}
                ItemSeparatorComponent={() => <ListDivider />}
                style={styles.matches}
