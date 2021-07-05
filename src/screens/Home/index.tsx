@@ -27,6 +27,18 @@ export function Home() {
          category: '1',
          date: '22/06 at 20:40h',
          description: 'It is today that we will reach the challenger without losing a md10 match'
+      },
+      {
+         id: '2',
+         guild: {
+            id: '1',
+            name: 'Lendários',
+            icon: null,
+            owner: true
+         },
+         category: '2',
+         date: '22/06 at 20:40h',
+         description: 'It is today that we will reach the challenger without losing a md10 match'
       }
    ]
 
