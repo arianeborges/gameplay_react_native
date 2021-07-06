@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { FlatList, ImageBackground, Text, View } from 'react-native';
+import { Text, View } from 'react-native';
 import { RectButton } from 'react-native-gesture-handler';
 import { Feather } from '@expo/vector-icons';
 import { Background } from '../../components/Background';
@@ -7,6 +7,7 @@ import { CategorySelect } from '../../components/CategorySelect';
 import { Header } from '../../components/Header';
 import { GuildIcon } from '../../components/GuildIcon';
 import { SmallInput } from '../../components/SmallInput';
+import { TextArea } from '../../components/TextArea';
 
 import { styles } from './styles';
 import { theme } from '../../global/styles/theme';
@@ -64,6 +65,18 @@ export function AppointmentCreate() {
                   </View>
                </View>
             </View>
+
+            <View style={[styles.field, { marginBottom: 12 }]}>
+               <Text style={styles.label}>Description</Text>
+               <Text style={styles.charactersLimit}>Max 100 characters</Text>
+            </View>
+
+            <TextArea
+               multiline
+               maxLength={100}
+               numberOfLines={5}
+               autoCorrect={false}
+            />
 
          </View>
       </Background >
