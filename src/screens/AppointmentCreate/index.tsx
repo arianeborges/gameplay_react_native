@@ -12,6 +12,7 @@ import { TextArea } from '../../components/TextArea';
 import { styles } from './styles';
 import { theme } from '../../global/styles/theme';
 import { Platform } from 'react-native';
+import { Button } from '../../components/Button';
 
 
 export function AppointmentCreate() {
@@ -84,6 +85,9 @@ export function AppointmentCreate() {
                   autoCorrect={false}
                />
 
+               <View style={styles.footer}>
+                  <Button title="Schedule" />
+               </View>
             </View>
          </Background >
          </ScrollView>
