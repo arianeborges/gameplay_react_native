@@ -15,7 +15,7 @@ export function ButtonIcon({ title, ...rest }: Props) {
          <View style={styles.iconWrapper}>
             <Image source={DiscordImg} style={styles.icon} resizeMode='stretch' />
          </View>
-         <Text style={styles.title}>Sign in with Discord</Text>
+         <Text style={styles.title}>{title}</Text>
       </RectButton>
    )
 }
