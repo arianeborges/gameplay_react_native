@@ -5,13 +5,16 @@ import { Feather } from '@expo/vector-icons';
 import { Background } from '../../components/Background';
 import { CategorySelect } from '../../components/CategorySelect';
 import { Header } from '../../components/Header';
+import { GuildIcon } from '../../components/GuildIcon';
+import { SmallInput } from '../../components/SmallInput';
+
 import { styles } from './styles';
 import { theme } from '../../global/styles/theme';
-import { GuildIcon } from '../../components/GuildIcon';
 
 
 export function AppointmentCreate() {
-   const [category, setCategory] = useState('')
+   const [category, setCategory] = useState('');
+
    return (
       <Background>
          <Header title="Schedule match" />
@@ -41,8 +44,28 @@ export function AppointmentCreate() {
                   />
                </View>
             </RectButton>
-         </View>
 
+            <View style={styles.field}>
+               <View>
+                  <Text style={styles.label}>Day and month</Text>
+                  <View style={styles.column}>
+                     <SmallInput maxLength={2} />
+                     <Text style={styles.divider}>/</Text>
+                     <SmallInput maxLength={2} />
+                  </View>
+               </View>
+
+               <View>
+                  <Text style={styles.label}>Hour and minute</Text>
+                  <View style={styles.column}>
+                     <SmallInput maxLength={2} />
+                     <Text style={styles.divider}>:</Text>
+                     <SmallInput maxLength={2} />
+                  </View>
+               </View>
+            </View>
+
+         </View>
       </Background >
    )
 }
