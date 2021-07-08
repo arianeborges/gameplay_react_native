@@ -1,16 +1,17 @@
 import React from 'react';
-import { View, Text, Image, Alert } from 'react-native';
+import { View, Text, Image, Alert, ActivityIndicator } from 'react-native';
 import { ButtonIcon } from '../../components/ButtonIcon';
 import { Background } from '../../components/Background';
 import { useAuth } from '../../hooks/auth';
 
 import IllustrationImg from '../../assets/illustration.png';
 import { styles } from './styles';
+import { theme } from '../../global/styles/theme';
 
 export function SignIn() {
-   const { user, signIn } = useAuth();
+   const { signIn, loading } = useAuth();
 
-   async function handleSignIn(){
+   async function handleSignIn() {
       try {
          await signIn();
       } catch (error) {
@@ -33,7 +34,11 @@ export function SignIn() {
                   games with your friends
                </Text>
 
-               <ButtonIcon title='Sign in with Discord' onPress={handleSignIn} />
+               {
+                  loading
+                     ? <ActivityIndicator color={theme.colors.primary}/>
+                     : <ButtonIcon title='Sign in with Discord' onPress={handleSignIn} />
+               }
             </View>
          </View>
       </Background>
