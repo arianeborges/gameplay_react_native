@@ -44,9 +44,9 @@ export function AppointmentCreate() {
          behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
       >
          <Background>
-            <ScrollView>
-               <Header title="Schedule match" />
+            <Header title="Schedule match" />
 
+            <ScrollView>
                <Text style={[styles.label, { marginLeft: 24, marginTop: 36, marginBottom: 18 }]}>Category</Text>
 
                <CategorySelect
