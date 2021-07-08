@@ -8,7 +8,7 @@ export const styles = StyleSheet.create({
   label: {
     fontSize: 18,
     fontFamily: theme.fonts.title700,
-    color: theme.colors.heading,    
+    color: theme.colors.heading,   
   },
   form: {
     paddingHorizontal: 24,

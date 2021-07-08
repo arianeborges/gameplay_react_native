@@ -75,7 +75,7 @@ export function AppointmentCreate() {
 
                   <View style={styles.field}>
                      <View>
-                        <Text style={styles.label}>Day and month</Text>
+                        <Text style={[styles.label, { marginBottom: 12 }]}>Day and month</Text>
                         <View style={styles.column}>
                            <SmallInput maxLength={2} />
                            <Text style={styles.divider}>/</Text>
@@ -84,7 +84,7 @@ export function AppointmentCreate() {
                      </View>
 
                      <View>
-                        <Text style={styles.label}>Hour and minute</Text>
+                        <Text style={[styles.label, { marginBottom: 12 }]}>Hour and minute</Text>
                         <View style={styles.column}>
                            <SmallInput maxLength={2} />
                            <Text style={styles.divider}>:</Text>
