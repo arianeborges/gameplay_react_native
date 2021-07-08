@@ -17,7 +17,7 @@ export function Header({ title, action }: Props) {
    const { secondary100, secondary40, heading } = theme.colors;
    const navigation = useNavigation();
 
-   function handleGoBack(){
+   function handleGoBack() {
       navigation.goBack();
    }
 
@@ -30,10 +30,13 @@ export function Header({ title, action }: Props) {
          <Text style={styles.title}>{title}</Text>
 
          {
-            action &&
-            <View>
-               {action}
-            </View>
+            action
+               ?
+               <View>
+                  {action}
+               </View>
+               :
+               <View style={{ width: 24 }} />
          }
       </LinearGradient>
    )
