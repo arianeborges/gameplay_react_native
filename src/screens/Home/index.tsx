@@ -68,7 +68,7 @@ export function Home() {
                <>
                   <ListHeader
                      title="Scheduled matches"
-                     subtitle="Total 6"
+                     subtitle={`Total ${appointments.length}`}
                   />
 
                   <FlatList
