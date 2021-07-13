@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { FlatList, ImageBackground, Text, View, Alert } from 'react-native';
+import { FlatList, ImageBackground, Text, View, Alert, Platform, Share } from 'react-native';
 import { BorderlessButton } from 'react-native-gesture-handler';
 import { Fontisto } from '@expo/vector-icons';
 import { useRoute } from '@react-navigation/native';
@@ -10,12 +10,12 @@ import { Member, MemberProps } from '../../components/Member';
 import { ListDivider } from '../../components/ListDivider';
 import { ButtonIcon } from '../../components/ButtonIcon';
 import { AppointmentsProps } from '../../components/Appointment';
+import { Load } from '../../components/Load';
 import { api } from '../../services/api';
 
 import BannerImg from '../../assets/banner.png';
 import { theme } from '../../global/styles/theme';
 import { styles } from './styles';
-import { Load } from '../../components/Load';
 
 type Params = {
    guildSelected: AppointmentsProps;
@@ -46,6 +46,14 @@ export function AppointmentDetails() {
       }
    }
 
+   function handleShareInvitation() {
+      const message = Platform.OS === 'ios'
+         ? `Join ${guildSelected.guild.name}`
+         : widget.instant_invite;
+
+      Share.share({ message, url: widget.instant_invite })
+   }
+
    useEffect(() => {
       fetchGuildInfo();
    }, [])
@@ -53,7 +61,8 @@ export function AppointmentDetails() {
    return (
       <Background>
          <Header title="Details" action={
-            <BorderlessButton>
+            guildSelected.guild.owner &&
+            <BorderlessButton onPress={handleShareInvitation}>
                <Fontisto name="share" size={24} color={theme.colors.primary} />
             </BorderlessButton>
          } />
